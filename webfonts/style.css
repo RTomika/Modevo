@@ -1,0 +1,147 @@
+body, html {
+    background-color: var(--bgColor);
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+:root {
+    --bgColor: hsl(0, 0%, 14%);
+    --mainColor: hsl(187, 42%, 60%);
+    --textColor: hsl(0, 0%, 2%);
+    --lightTextColor: hsl(0, 0%, 96%);
+    --bgColorDark: hsl(0, 0%, 10%);
+}
+
+.regCont {
+    margin-top: 40px;
+    margin-inline: 70px;
+}
+.regCont h2, .regCont p {
+    font-family: "Poppins", sans-serif;
+}
+.regCont h2 {
+    font-size: 2.5rem;
+}
+.regCont p {
+    font-size: 1.1rem;
+}
+/*Contact section*/
+
+.contactCont {
+    position: relative;
+    display: flex;
+    height: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+.middleCont {
+    position: relative;
+    width: 80vw;
+    max-width: 1200px;
+    align-items: center;
+    padding: 40px;
+    color: var(--textColor);
+    border-radius: 15px;
+    background-color: var(--bgColorDark);
+}
+.middleCont h1 {
+  margin-bottom: 30px;
+  color: var(--lightTextColor);
+  font-size: 3rem;
+  font-family: "Poppins" sans-serif;
+}
+.middleCont p {
+  font-size: 1.75rem;
+  color: var(--lightTextColor);
+  font-family: "Roboto" sans-serif;
+  line-height: 1.2;
+}
+
+
+
+.input-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 8px;
+  background-color: var(--bgColor);
+  color: var(--textColor);
+  outline: none;
+  font-family: "Roboto" sans-serif;
+  font-size: 1.5rem;
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 6px;
+  transition: border .2s ease-in-out;
+}
+.input-wrapper input:focus {
+  border-bottom: 2px solid var(--mainColor);
+}
+
+.input-wrapper label {
+  position: absolute;
+  color: var(--textColor);
+  left: 10px;
+  top: 12px;
+  background: transparent;
+  padding: 0 4px;
+  color: #aaa;
+  font-size: 1.5rem;
+  pointer-events: none;
+  transition: 0.2s ease-in-out all;
+}
+
+.input-wrapper input:focus + label,
+.input-wrapper input:not(:placeholder-shown) + label {
+  top: -16px;
+  left: 10px;
+  font-size: 1.25rem;
+}
+
+.input-wrapper input::placeholder {
+    color: transparent;
+}
+form {
+    position: relative;
+}
+#submit {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 1.5rem;
+    font-family: "Poppins" sans-serif;
+    font-weight: 500;
+    padding: 3px 24px;
+    outline: none;
+    border: none;
+    z-index: 1;
+    border-radius: 4px;
+    color: hsl(0, 0%, 64%);
+    background-color: var(--bgColor);
+    transition: color .2s ease-in-out;
+}
+#submit::after {
+    content: "";
+    position: absolute;
+    transform: scaleX(0);
+    transform-origin: left;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    border-radius: inherit;
+    background-color: var(--lightTextColor);
+    transition: all .3s ease-in-out;
+}
+#submit:hover {
+  color: black;
+}
+#submit:hover::after, #submit:focus::after {
+    transform: scaleX(1);
+}
