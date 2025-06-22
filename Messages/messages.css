@@ -1,0 +1,121 @@
+body, html {
+    background-color: hsl(0, 0%, 15%);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+:root {
+    --textColor: hsl(0, 0%, 95%);
+    --textColorLight: hsl(0, 0%, 80%);
+}
+
+#overlay {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 3;
+    transition: all .3s ease-in-out;
+}
+
+.mainText {
+    color: var(--textColor);
+    font-size: 3.5rem;
+    font-family: "Poppins";
+    margin-block: 35px;
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+}
+
+th { 
+    color: var(--textColor); 
+    font-weight: 600;
+}
+
+.messages:hover {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 95%);
+    color: transparent;
+}
+.messages {
+    position: relative;
+}
+
+.moreMsgBtn {
+    position: absolute;
+    font-family: "Poppins";
+    font-weight: 600;
+    padding: 2px 14px;
+    border-radius: 4px;
+    background-color: hsl(0, 0%, 5%);
+    color: var(--textColor);
+    border: none;
+    outline: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: all .3s ease-in-out;
+}
+
+td { 
+    color: var(--textColorLight); 
+    max-width: 600px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: all .3s ease-in-out;
+}
+
+th, td {
+    padding: 15px;
+    background-color: hsl(0, 0%, 10%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#contentCont {
+    position: fixed;
+    display: none;
+    background-color: hsla(0, 0%, 85%);
+    width: 90vw;
+    border-radius: 30px;
+    padding: 15px;
+    max-width: 700px;
+    opacity: 0;
+    z-index: 11;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all .5s ease-in-out;
+}
+#contentCont.show {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    top: 50%;
+}
+.nameShow {
+    font-family: "Poppins";
+    font-size: 3.25rem;
+    margin-bottom: 0;
+}
+.emailShow {
+    font-size: 1.2rem;
+}
+.messageShow {
+    font-size: 1rem;
+    margin-block: 20px;
+    max-width: 500px;
+    margin: auto;
+    word-break: break-word;
+}
+.dateShow {
+    margin: 0 0 10px 10px;
+}

@@ -105,4 +105,37 @@ if ('scrollRestoration' in history) {
 
     clearTimeout(arrowTimeout);
     });
+
+
+    const boxes = document.querySelectorAll(".boxes");
+    const box1 = document.getElementById("box1");
+    const box2 = document.getElementById("box2");
+    const box3 = document.getElementById("box3");
+
+    const observer2 = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 1) {
+              box1.classList.add("boxShow");
+              setTimeout(() => {
+                box2.classList.add("boxShow")
+              }, 300);
+              setTimeout(() => {
+                box3.classList.add("boxShow");
+              }, 600);
+            }
+        });
+    }, { threshold: 1 });
+
+    boxes.forEach(box => observer2.observe(box));
+
+    const dropElements = document.querySelectorAll(".dropScroll");
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio >= 0.7) {
+                entry.target.classList.add("dropShow");
+            }
+        });
+    }, { threshold: 0.7 });
+
+    dropElements.forEach(dropElement => observer.observe(dropElement));
 })
