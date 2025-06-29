@@ -29,12 +29,16 @@ html.lenis, html.lenis body {
 }
 
 :root {
-    --bgColor: hsl(0, 0%, 18%);
-    --bgColorDark: hsl(0, 0%, 14%);
-    --mainColor: rgb(226, 196, 22);
+    --bgColor: hsl(0, 0%, 16%);
+    --bgColorDark: hsl(0, 0%, 12%);
+    --mainColor: #2979FF;
     --textColor: hsl(0, 0%, 15%);
     --lightTextColor: hsl(0, 0%, 95%);
     --grayTextColor: hsl(0, 0%, 70%);
+}
+
+.loadTexts {
+  visibility: hidden;
 }
 
 a {
@@ -42,13 +46,39 @@ a {
     color: inherit;
 }
 
+hr {
+  border: 2px solid black;
+}
+.lines {
+  position: relative;
+  height: 4px;
+  background-color: var(--mainColor);
+  border-radius: 6px;
+  margin-block: 20px;
+}
+.lines::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--mainColor);
+  border-radius: inherit;
+  filter: blur(4px);
+}
+
 .dropScroll {
     opacity: 0;
     transform: translateY(-30px);
-    transition: all 1s ease-in-out;
+    filter: blur(3px);
+    transition: all .5s ease-in-out;
 }
 .dropShow {
     opacity: 1;
+    filter: blur(0);
     transform: translateY(0);
 }
 
@@ -72,7 +102,7 @@ a {
   margin-top: 10px;
   background-color: hsla(0, 0%, 0%, 0.1);
   z-index: 9;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(20px);
   border-radius: 10px;
   opacity: 0;
   max-width: 1400px;
@@ -161,16 +191,24 @@ a {
 
 #mainText {
   font-family: "Poppins", sans-serif;
-  color: transparent;
-  background-clip: text !important;
+  color: var(--textColor);
   margin: 0;
-  background: linear-gradient(to right, hsl(0, 0%, 5%), hsl(0, 0%, 50%));
+  opacity: 0;
+  transform: scale(0.2);
+  filter: blur(6px);
   font-size: 6rem;
   font-weight: 600;
+  transition: all 2s ease-in-out;
+}
+#mainText.mainTextShow {
+  opacity: 1;
+  transform: scale(1);
+  filter: blur(0);
 }
 #heroSubText {
     font-family: "Poppins", sans-serif;
     font-weight: 600;
+    visibility: hidden;
     color: hsl(0, 0%, 20%);
     font-size: 2rem;
 }
@@ -184,8 +222,14 @@ a {
   font-weight: 600;
   width: 100%;
   margin: auto;
+  opacity: 0;
+  transform: translateY(-40px);
   padding: 3px 0;
-  transition: all .3s ease-in-out;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out, opacity .8s ease-in-out, transform .8s ease-in-out;
+}
+#heroBtn.heroBtnShow {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #heroBtn::after {
@@ -244,6 +288,51 @@ a {
   margin-block: 50px;
   background: linear-gradient(to right, hsl(0, 0%, 90%), hsl(0, 0%, 45%));
 }
+.mainTextsDark {
+  margin-top: 0;
+  background: linear-gradient(to right, hsl(0, 0%, 5%), hsl(0, 0%, 45%));
+}
+
+.chooseCont {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.chooseBox2 {
+  align-self: center !important;
+}
+.chooseBox3 {
+  align-self: end !important;
+}
+
+.chooseBoxes {
+  position: relative;
+  width: 700px;
+  background-color: white;
+  border-radius: 40px;
+  padding: 40px;
+  margin-block: 40px;
+}
+.chooseBoxes h3 {
+  font-size: 3rem;
+  color: var(--textColor);
+  font-weight: 600;
+  font-family: "Poppins";
+}
+.chooseBoxes p {
+  font-size: 1.5rem;
+  color: var(--textColor);
+  font-family: "Roboto";
+}
+
+.usersIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 40px;
+  font-size: 3rem;
+  color: var(--textColor);
+}
 
 /*Section 2*/
 
@@ -251,34 +340,44 @@ a {
   position: relative;
   background-color: hsl(0, 0%, 12%);
   flex: 1 1 calc(33.333% - 13.33px);
-  max-width: 400px;
+  max-width: 410px;
   padding: 25px;
   border-radius: 30px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
   opacity: 0;
   overflow: hidden;
+  filter: blur(3px);
   transform: translateY(-50px);
   transition: all .5s ease-in-out;
 }
+
 .numbers {
   position: absolute;
   right: 0;
   top: 50%;
   transform: translateY(-50%);
-  color: white;
-  opacity: 0.05;
-  font-size: 18rem;
+  color: var(--bgColor);
+  z-index: -1;
+  font-size: 19rem;
 }
 .boxes h3 {
   color: hsl(0, 0%, 92%);
   font-family: "Poppins" sans-serif;
-  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  font-size: 2.25rem;
 }
 .boxes p {
   color: hsl(0, 0%, 82%);
+  margin-bottom: 0;
   font-family: "Roboto" sans-serif;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
+.boxesCont {
+  background: linear-gradient(to right, hsl(0, 0%, 95%), hsl(0, 0%, 80%));
+  padding-block: 50px 80px;
+}
 #boxesRow {
   display: flex;
   justify-content: center;
@@ -288,17 +387,102 @@ a {
 }
 
 
+.payCont {
+  position: relative;
+  width: 800px;
+  margin-inline: auto;
+  margin-top: 60px;
+  overflow: hidden;
+  box-shadow: 4px 4px 16px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+  border-radius: 20px;
+}
+.payImg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.payCont::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+}
+
+.payCont h3, .payCont p {
+  position: relative;
+  z-index: 2;
+}
+
+.payCont h3 {
+  font-size: 3.25rem;
+  font-family: "Poppins";
+  color: var(--lightTextColor);
+}
+.payCont p {
+  color: hsl(0, 0%, 80%);
+  font-family: "Roboto";
+  font-size: 1.5rem;
+}
+
+.creditCard {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 11;
+  color: var(--lightTextColor);
+  margin: 40px;
+  font-size: 3rem;
+}
+
+.priceCont {
+  max-width: 1400px;
+  margin-bottom: 70px;
+}
+
+.priceBoxConts {
+  display: flex;
+  justify-content: center;
+}
+.priceBoxes {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  background-color: hsl(0, 0%, 95%);
+  border-radius: 6px;
+  opacity: 0;
+  transform: translateX(-30px) scale(0.8);
+  filter: blur(3px);
+  transition: all .4s ease-in-out;
+}
+
+.boxShow, .priceShow {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate(0) scale(1);
+}
+
 /*Contact section*/
 
 .row {
   margin: 0;
 }
 
+.contactMainCont {
+    padding-block: 60px;
+    background: linear-gradient(to right, hsl(0, 0%, 95%), hsl(0, 0%, 80%));
+}
+
 .contactCont {
     position: relative;
     display: flex;
     height: fit-content;
-    margin-bottom: 100px;
     align-items: center;
     justify-content: center;
 }
@@ -318,6 +502,7 @@ a {
   color: var(--lightTextColor);
   font-size: 2.75rem;
   font-family: "Poppins" sans-serif;
+  font-weight: 600;
 }
 .middleCont p {
   font-size: 1.25rem;

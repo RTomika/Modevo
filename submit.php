@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: application/json');
 
 $host = 'localhost';
 $db   = 'modevo_contact';
@@ -16,7 +17,12 @@ $options = [
 try {
     $pdo = new PDO($dsn, $user, $pass, $options);
 } catch (Exception $e) {
-    die("Adatbázis csatlakozási hiba: " . $e->getMessage());
+    echo json_encode([
+        'success' => false,
+        'error' => 'db_connection',
+        'message' => 'Adatbázis csatlakozási hiba: ' . $e->getMessage()
+    ]);
+    exit;
 }
 
 if (
@@ -25,24 +31,39 @@ if (
     !empty($_POST['customer_email']) &&
     !empty($_POST['customer_message'])
 ) {
-
     $name = trim($_POST['customer_name']);
     $email = filter_var(trim($_POST['customer_email']), FILTER_VALIDATE_EMAIL);
     $message = trim($_POST['customer_message']);
 
     if (!$email) {
-        die("Érvénytelen email cím.");
+        echo json_encode([
+            'success' => false,
+            'error' => 'invalid_email',
+        ]);
+        exit;
     }
 
     try {
         $stmt = $pdo->prepare("INSERT INTO messages (name, email, message) VALUES (?, ?, ?)");
         $stmt->execute([$name, $email, $message]);
 
-        echo "Üzenet sikeresen elküldve!";
+        echo json_encode([
+            'success' => true,
+        ]);
+        exit;
     } catch (Exception $e) {
-        echo "Hiba az adatok mentésekor: " . htmlspecialchars($e->getMessage());
+        echo json_encode([
+            'success' => false,
+            'error' => 'db_insert',
+            'message' => 'Hiba: ' . $e->getMessage()
+        ]);
+        exit;
     }
 } else {
-    die("Kérlek, tölts ki minden mezőt!");
+    echo json_encode([
+        'success' => false,
+        'error' => 'missing_fields',
+        'message' => 'Kérlek, tölts ki minden mezőt!'
+    ]);
+    exit;
 }
-?>
