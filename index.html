@@ -14,14 +14,42 @@
 </head>
 <body>
 
-  <div class="pageCover"></div>
+  <div id="pageCover"></div>
 
-  <div class="successDiv">
-
+  <div id="messageDivs">
+    <i class="fa-solid fa-xmark xIcon"></i>
+    <h3>Thank you for reaching out!</h3>
+    <div class="lines greenLine"></div>
+    <p>Your message will be reviewed by us in the next 24hrs. By that time, if you are actualy serius about making this happen, here's a calendly link where you can book a zoom meeting with me:</p>
+    <a href="https://calendly.com/modevo" target="_blank" rel="noopener noreferrer">Book Meeting</a>
   </div>
 
+  <div id="messageDivsEmail">
+    <i class="fa-solid fa-xmark xIcon xIconEmail"></i>
+    <h3>Error!</h3>
+    <div class="lines redLine"></div>
+    <p>In order for us to connect after this initial messaging, we need you to use a <span class="boldSpan">valid email address!</span></p>
+  </div>
+
+  <!--Offcanvas-->
+  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div>
+      Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists, etc.
+    </div>
+    <ul>
+      <li><a class="offCanvasBtns" href="#firstThing">Home</a></li>
+      <li><a class="offCanvasBtns" href="#contactSect">Contact</a></li>
+    </ul>
+  </div>
+</div>
+
     <section class="hero">
-    <div class="firstThing"></div>
+    <div id="firstThing" class="firstThing"></div>
 
             <!--Navbar-->
     <header>
@@ -32,10 +60,11 @@
       </a>
 
       <div class="ms-auto">
+        <i class="fa-solid fa-bars bars" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample"></i>
         <a href="#section2" class="btn navBtns">About</a>
-        <a href="#starsCont" class="btn navBtns">Projects</a>
-        <a href="#section3" class="btn navBtns">Prices</a>
-        <a href="#section4" class="btn navBtns lastBtn">Contact</a>
+        <a href="#section3" class="btn navBtns">Process</a>
+        <a href="#section4" class="btn navBtns">Prices</a>
+        <a href="#contactSect" class="btn navBtns lastBtn">Contact</a>
       </div>
     </div>
   </nav>
@@ -48,55 +77,58 @@
         <div id="heroContent" class="content">
             <h1 id="mainText">Modevo</h1>
             <p id="heroSubText">Get Creative With Us!</p>
-            <a id="heroBtn" href="#">Start Your Project</a>
+            <a id="heroBtn" href="#contactSect">Start Your Project</a>
         </div>
         <i class="fa-solid fa-arrow-down arrowDown"></i>
     </section>
 
-    <section class="section2">
+    <section id="section2" class="section2">
       <h2 class="mainTexts dropScroll">Why choose us</h2>
 
       <div class="container chooseCont">
-        <div class="chooseBoxes chooseBox1 dropScroll">
-          <h3>More Traffic!</h3><hr>
-          <i class="fa-solid fa-users usersIcon"></i>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius sed accusantium aperiam cumque? Quasi porro, magni velit perferendis dolorem commodi, consequuntur fugit similique neque veritatis quae facilis sit voluptates cum!</p>
-        </div>
+           <div class="chooseBoxes chooseBox1 dropScroll">
+            <h3>More Traffic!</h3><hr>
+            <i class="fa-solid fa-users usersIcon"></i>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius sed accusantium aperiam cumque? Quasi porro, magni velit perferendis dolorem commodi, consequuntur fugit similique neque veritatis quae facilis sit voluptates cum!</p>
+          </div>
 
-        <div class="chooseBoxes chooseBox2 dropScroll">
-          <h3>Better SEO!</h3><hr>
-          <i class="fa-solid fa-chart-line usersIcon"></i>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem rerum reprehenderit placeat magni blanditiis praesentium, ratione doloremque quod porro harum exercitationem enim a debitis illo quia mollitia quis suscipit nesciunt?</p>
-        </div>
+          <div class="chooseBoxes chooseBox2 dropScroll">
+            <h3>Better SEO!</h3><hr>
+            <i class="fa-solid fa-chart-line usersIcon"></i>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem rerum reprehenderit placeat magni blanditiis praesentium, ratione doloremque quod porro harum exercitationem enim a debitis illo quia mollitia quis suscipit nesciunt?</p>
+          </div>
 
-        <div class="chooseBoxes chooseBox3 dropScroll">
-          <h3>Good reviews!</h3><hr>
-          <i class="fa-solid fa-face-grin-stars usersIcon"></i>
-          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque odit ad assumenda saepe consequuntur! Placeat sequi doloremque vel, exercitationem rerum iste possimus provident deleniti! Odit deleniti laudantium ad distinctio a.</p>
-        </div>
+          <div class="chooseBoxes chooseBox3 dropScroll">
+            <h3>Good reviews!</h3><hr>
+            <i class="fa-solid fa-face-grin-stars usersIcon"></i>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque odit ad assumenda saepe consequuntur! Placeat sequi doloremque vel, exercitationem rerum iste possimus provident deleniti! Odit deleniti laudantium ad distinctio a.</p>
+          </div>
       </div>
     </section>
 
     <section class="section3">
       
 
-      <div class="boxesCont">
+      <div id="section3" class="boxesCont">
         <h2 class="mainTexts mainTextsDark dropScroll">How it works</h2>
         <div class="container">
           <div id="boxesRow" class="row">
             <div id="box1" class="boxes col-lg-4">
               <h5 class="numbers">1</h5>
               <h3>Meeting</h3>
+              <div class="lines"></div>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem qui aut officia harum, ut ipsa tempore quibusdam mollitia ad!</p>
             </div>
             <div id="box2" class="boxes col-lg-4">
               <h5 class="numbers">2</h5>
               <h3>Work</h3>
+              <div class="lines"></div>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem qui aut officia harum, ut ipsa tempore quibusdam mollitia ad!</p>
             </div>
             <div id="box3" class="boxes col-lg-4">
               <h5 class="numbers">3</h5>
               <h3>Finish</h3>
+              <div class="lines"></div>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem qui aut officia harum, ut ipsa tempore quibusdam mollitia ad!</p>
             </div>
           </div>
@@ -114,20 +146,38 @@
       </div>
     </section>
 
-    <section class="section4">
+
+    <section id="section4" class="section4">
       <h2 class="mainTexts">What's the cost</h2>
 
       <div class="container priceCont">
         <div class="row priceRow">
 
+          
           <div class="col-lg-4 priceBoxConts">
-            <div id="priceBox1" class="priceBoxes"></div>
+            <div id="priceBox1" class="priceBoxes">
+              <h3 class="text-center">Storefront</h3>
+              <div class="lines"></div>
+              <p class="text-center">Built for selling products with a clean,<br> conversion-focused layout.</p>
+              <h4 class="sitePrices">$2999</h4>
+            </div>
           </div>
           <div class="col-lg-4 priceBoxConts">
-            <div id="priceBox2" class="priceBoxes"></div>
+            <div id="priceBox2" class="priceBoxes">
+              <h6>Best Offer</h6>
+              <h3 class="text-center">Creator Site</h3>
+              <div class="lines"></div>
+              <p class="text-center">Perfect for portfolios, link-in-bio websites,<br> and personal brands.</p>
+              <h4 class="sitePrices">$1999</h4>
+            </div>
           </div>
           <div class="col-lg-4 priceBoxConts">
-            <div  id="priceBox3"class="priceBoxes"></div>
+            <div  id="priceBox3"class="priceBoxes">
+              <h3 class="text-center">Custom Build</h3>
+              <div class="lines"></div>
+              <p class="text-center">Got something special in mind?<br> We'll see what I can do.</p>
+              <h4 class="sitePrices">From: $3499</h4>
+            </div>
           </div>
 
         </div>
@@ -137,7 +187,7 @@
 
   <!--Contact-->
 
-  <div class="contactMainCont">
+  <div id="contactSect" class="contactMainCont">
     <h2 class="mainTexts mainTextsDark dropScroll">Get in touch</h2>
     <section id="section5" class="container contactCont">
       <div class="row middleCont">
@@ -152,12 +202,12 @@
 
             <div class="userInfoCont">
               <div class="input-wrapper">
-                <input id="firstName" type="text" name="customer_name" placeholder=" " required>
+                <input id="firstName" type="text" name="customer_name" placeholder=" " autocomplete="off" required>
                 <label for="firstName">Name</label>
               </div>
             
               <div id="lastWrapper" class="input-wrapper">
-                <input id="userEmail" type="text" name="customer_email" placeholder=" " required>
+                <input id="userEmail" type="text" name="customer_email" placeholder=" " autocomplete="off" required>
                 <label for="userEmail">Email</label>
               </div>
             </div>
@@ -171,6 +221,11 @@
       </div>
     </section>
   </div>
+
+
+  <footer>
+    <p class="text-center">&copy; 2025 Modevo. All rights reserved</p>
+  </footer>
     
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

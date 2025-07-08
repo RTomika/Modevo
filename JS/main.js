@@ -33,6 +33,9 @@ function requestTick() {
   }
 }
 
+const messageDivs = document.getElementById("messageDivs");
+const messageDivsEmail = document.getElementById("messageDivsEmail");
+const pageCover = document.getElementById("pageCover");
 document.querySelector('.form').addEventListener('submit', function(e) {
   e.preventDefault();
 
@@ -46,13 +49,27 @@ document.querySelector('.form').addEventListener('submit', function(e) {
 .then(res => res.json())
 .then(data => {
   if (data.success) {
-    document.querySelector('.successBox')?.classList.add('xShow');
-    //alert("SENT SUCCESSFULLY");
+      messageDivs.classList.add("messageDivVisible");
+      messageDivs.style.display = "flex";
+      pageCover.style.display = "block";
+    setTimeout(() => {
+      messageDivs.style.opacity = "1";
+      messageDivs.style.top = "50%";
+      messageDivs.style.filter = "blur(0)";
+      pageCover.style.opacity = "1";
+    }, 20);
     form.reset();
   } 
   else if (data.error === 'invalid_email') {
-    document.querySelector('.emailErrorBox')?.classList.add('emailErr');
-    //alert("INVALID EMAIL");
+      messageDivsEmail.classList.add("messageEmailDivVisible");
+      messageDivsEmail.style.display = "flex";
+      pageCover.style.display = "block";
+    setTimeout(() => {
+      messageDivsEmail.style.opacity = "1";
+      messageDivsEmail.style.top = "50%";
+      messageDivsEmail.style.filter = "blur(0)";
+      pageCover.style.opacity = "1";
+    }, 20);
   } 
   else {
     alert(data.message);
@@ -129,6 +146,50 @@ window.onload = () => {
 };
 
 
+// Successful Closing
+const xIcon = document.querySelector(".xIcon");
+const xIconEmail = document.querySelector(".xIconEmail");
+document.addEventListener("click", function(event) {
+  if (messageDivs.classList.contains("messageDivVisible")) {
+    const clickedInside = messageDivs.contains(event.target);
+    const clickedXIcon = event.target === xIcon;
+
+    if (!clickedInside || clickedXIcon) {
+      // Hide the messageDivs
+      messageDivs.style.opacity = "0";
+      messageDivs.style.top = "0";
+      messageDivs.style.filter = "blur(4px)";
+      pageCover.style.opacity = "0";
+
+      setTimeout(() => {
+        pageCover.style.display = "none";
+        messageDivs.style.display = "none";
+        messageDivs.classList.remove("messageDivVisible");
+      }, 501);
+    }
+  }
+
+
+  if (messageDivsEmail.classList.contains("messageEmailDivVisible")) {
+    const clickedInside = messageDivsEmail.contains(event.target);
+    const clickedXIconEmail = event.target === xIconEmail;
+
+    if (!clickedInside || clickedXIconEmail) {
+      messageDivsEmail.style.opacity = "0";
+      messageDivsEmail.style.top = "0";
+      messageDivsEmail.style.filter = "blur(4px)";
+      pageCover.style.opacity = "0";
+
+      setTimeout(() => {
+        pageCover.style.display = "none";
+        messageDivsEmail.style.display = "none";
+        messageDivsEmail.classList.remove("messageEmailDivVisible");
+      }, 501);
+    }
+  }
+});
+
+
 const mainText = document.getElementById("mainText");
 const heroBtn = document.getElementById("heroBtn");
   setTimeout(() => {
@@ -202,12 +263,13 @@ const heroBtn = document.getElementById("heroBtn");
             if (entry.intersectionRatio >= 1) {
               box1.classList.add("boxShow");
               setTimeout(() => {
-                box2.classList.add("boxShow");
-              }, 300);
-              setTimeout(() => {
-                box3.classList.add("boxShow");
-              }, 600);
+              box2.classList.add("boxShow");
+            }, 200);
+            setTimeout(() => {
+              box3.classList.add("boxShow");
+            }, 400);
             }
+            
         });
     }, { threshold: 1 });
 
@@ -217,18 +279,18 @@ const heroBtn = document.getElementById("heroBtn");
 
   const observerPrice = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.intersectionRatio >= 1) {
+            if (entry.intersectionRatio >= 0.7) {
               priceBox1.classList.add("priceShow");
               setTimeout(() => {
                 priceBox2.classList.add("priceShow");
 
-              }, 300);
+              }, 200);
               setTimeout(() => {
                 priceBox3.classList.add("priceShow");
-              }, 600);
+              }, 400);
             }
         });
-    }, { threshold: 1 });
+    }, { threshold: 0.7 });
 
     boxes.forEach(box => observer2.observe(box));
 
@@ -246,3 +308,12 @@ const heroBtn = document.getElementById("heroBtn");
     dropElements.forEach(dropElement => observer.observe(dropElement));
 
 })
+
+document.querySelectorAll('.offCanvasBtns').forEach(btn => {
+    btn.addEventListener('click', function (e) {
+      setTimeout(() => {
+        const offcanvasEl = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasExample'));
+        offcanvasEl.hide();
+      }, 50);
+    });
+  });

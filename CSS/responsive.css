@@ -10,4 +10,106 @@
     .contactDiv {
         width: 100%;
     }
+    .chooseBoxes {
+        margin: auto;
+        margin-block: 30px;
+    }
+    .priceBoxes {
+        margin-block: 30px;
+        margin-inline: 30px;
+    }
+}
+
+
+@media only screen and (max-width: 768px) {
+    .mainTexts {
+        font-size: 11vw;
+        margin-block: 40px;
+    }
+    .boxesCont {
+        padding-block: 16px 70px;
+    }
+    #contactSect {
+        padding-block: 15px 35px;
+    }
+}
+
+
+@media only screen and (max-width: 705px) {
+    #mainText {
+        font-size: 16vw;
+    }
+    #heroSubText {
+        font-size: 5.5vw;
+        margin-bottom: 6px;
+    }
+    .payImg {
+        width: auto;
+        height: 100%;
+    }
+}
+@media only screen and (max-width: 520px) {
+    .navBtns {
+        display: none;
+    }
+    .bars {
+        display: block;
+    }
+    #heroBtn {
+        font-size: 3.5vw;
+    }
+    .chooseBoxes {
+        padding: 30px;
+    }
+    .chooseBoxes h3 {
+        font-size: 8vw;
+    }
+    .chooseBoxes p {
+        font-size: 5vw;
+    }
+    .usersIcon {
+        font-size: 8vw;
+        margin: 30px;
+    }
+    .boxes {
+        width: 85%;
+    }
+    .payCont {
+        padding: 30px;
+    }
+    .payCont h3, .creditCard {
+        font-size: 10vw;
+    }
+    .payCont h3, .payText {
+        margin: 0;
+    }
+    .creditCard {
+        margin: 30px;
+    }
+    .payText {
+        font-size: 6vw !important;
+    }
+    .middleCont {
+        padding: 40px 24px;
+    }
+    .middleCont h1 {
+        font-size: 8vw;
+    }
+    .input-wrapper input, .input-wrapper label, #text, #text::placeholder, #submit {
+        font-size: 1.1rem;
+    }
+    .input-wrapper input:focus + label,
+    .input-wrapper input:not(:placeholder-shown) + label {
+        font-size: 1rem;
+        top: -14px;
+    }
+    .input-wrapper label {
+        top: 14px;
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    .contactDiv {
+        padding: 0;
+    }
 }
