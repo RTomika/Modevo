@@ -56,6 +56,15 @@ html.lenis, html.lenis body {
   transition: all .5s ease-in-out;
 }
 
+.hp-field {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  pointer-events: none;
+  visibility: hidden;
+  overflow: hidden;
+}
+
 .offcanvas {
   background-color: var(--bgColor);
   padding: 20px 20px 40px 20px;

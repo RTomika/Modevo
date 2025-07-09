@@ -35,6 +35,15 @@ if (
     $email = filter_var(trim($_POST['customer_email']), FILTER_VALIDATE_EMAIL);
     $message = trim($_POST['customer_message']);
 
+    // Honeypot 
+    if (!empty($_POST['website'])) {  
+    echo json_encode([
+        'success' => false,
+        'error' => 'bot_detected'
+    ]);
+    exit;  
+    }
+
     if (!$email) {
         echo json_encode([
             'success' => false,
