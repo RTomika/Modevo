@@ -58,6 +58,15 @@
     #heroBtn {
         font-size: 3.5vw;
     }
+    #messageDivs h3, #messageDivsEmail h3 {
+        font-size: 2.25rem;
+    }
+    #messageDivs p, #messageDivsEmail p {
+        font-size: 1.15rem;
+    }
+    .xIcon {
+        font-size: 2.5rem;
+    }
     .chooseBoxes {
         padding: 30px;
     }

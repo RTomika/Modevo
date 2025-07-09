@@ -58,10 +58,36 @@ html.lenis, html.lenis body {
 
 .offcanvas {
   background-color: var(--bgColor);
+  padding: 20px 20px 40px 20px;
+  height: fit-content !important;
   color: var(--lightTextColor);
 }
 .btn-close {
   background-color: white;
+}
+.offcanvas-title {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+.offCanvasBtnCont {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-inline: auto;
+  text-align: center;
+}
+.offCanvasBtns {
+  background-color: var(--lightTextColor);
+  color: var(--bgColorDark);
+  width: 140px;
+  font-size: 1.25rem;
+  font-family: "Poppins";
+  font-weight: 600;
+  border-radius: 4px;
+  padding: 2px 0;
+  margin: auto;
 }
 
 #messageDivs, #messageDivsEmail {
@@ -403,7 +429,7 @@ hr {
 
 .chooseBoxes {
   position: relative;
-  width: 90%;
+  width: 85%;
   max-width: 600px;
   background-color: white;
   border-radius: 40px;
@@ -486,7 +512,7 @@ hr {
 
 .payCont {
   position: relative;
-  width: 90%;
+  width: 85%;
   max-width: 800px;
   margin-inline: auto;
   margin-top: 60px;
@@ -584,7 +610,7 @@ hr {
   border-radius: 4px;
 }
 
-#priceBox2::after, #priceBox2::before, #priceBox2 h6::after, #priceBox2 h6::before {
+#priceBox2::after, #priceBox2::before, #priceBox2 h6::after, #priceBox2 h6::before, .chooseBoxes::after, .chooseBoxes::before {
   content: "";
   position: absolute;
   top: 0;
@@ -595,7 +621,7 @@ hr {
   background-color: var(--bgColorDark);
   border-radius: inherit;
 }
-#priceBox2::before, #priceBox2 h6::before {
+#priceBox2::before, #priceBox2 h6::before, .chooseBoxes::before {
   background-color: var(--mainColor);
   height: calc(100% + 10px);
   width: calc(100% + 10px);
@@ -610,6 +636,10 @@ hr {
   width: calc(100% + 4px) !important;
   filter: blur(8px) !important;
 }
+.chooseBoxes::after {
+  background-color: var(--lightTextColor);
+}
+
 .priceBoxes h3 {
   font-size: 2rem;
   margin-inline: 15px;
@@ -655,7 +685,6 @@ hr {
     max-width: 1200px;
     align-items: center;
     padding: 40px;
-    color: var(--textColor);
     border-radius: 15px;
     background-color: var(--bgColorDark);
 }
